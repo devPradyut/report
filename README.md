@@ -1,4 +1,5 @@
 # report
+Steps
+1 .`npm install -g bower`
 
-npm install -g bower
-bower install bootstrap
+2 . `bower install bootstrap`
