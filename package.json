@@ -15,14 +15,25 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "build-installer": "electron-builder"
+    "build-installer": "electron-builder --windows nsis:ia32",
+	"postinstall": "electron-builder install-app-deps",
+	"pack": "build --dir",
+    "dist": "build",
+    "pack-win": "build --dir --win",
+    "dist-win": "build --win"
   },
   "build": {
     "appId": "report",
     "win": {
       "target": [
-        "nsis"
-      ],
+      {
+        "target": "nsis",
+        "arch": [
+          "x64",
+          "ia32"
+        ]
+      }
+    ],
       "icon": "images/icon.ico",
       "requestedExecutionLevel": "requireAdministrator"
     },
