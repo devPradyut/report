@@ -6,6 +6,8 @@
   "dependencies": {
     "bootstrap": "^4.1.3",
     "jquery": "^3.5.1",
+    "jquery-ui": "^1.12.1",
+    "js-datepicker": "^5.16.0",
     "popper.js": "^1.14.4"
   },
   "devDependencies": {
@@ -16,8 +18,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
     "build-installer": "electron-builder --windows nsis:ia32",
-	"postinstall": "electron-builder install-app-deps",
-	"pack": "build --dir",
+    "postinstall": "electron-builder install-app-deps",
+    "pack": "build --dir",
     "dist": "build",
     "pack-win": "build --dir --win",
     "dist-win": "build --win"
@@ -26,14 +28,14 @@
     "appId": "report",
     "win": {
       "target": [
-      {
-        "target": "nsis",
-        "arch": [
-          "x64",
-          "ia32"
-        ]
-      }
-    ],
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ],
       "icon": "images/icon.ico",
       "requestedExecutionLevel": "requireAdministrator"
     },

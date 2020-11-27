@@ -10,7 +10,7 @@ function createWindow () {
   })
 
   win.loadFile('views/index.html')
-  win.webContents.openDevTools()
+//  win.webContents.openDevTools()
 }
 
 const { ipcMain } = require('electron')
@@ -26,6 +26,7 @@ ipcMain.handle('btnclick', (event, ...args) => {
 
   win.loadFile('views/serum_bilirubin.html')
   win.show();
+//  win.webContents.openDevTools()
 })
 
 

@@ -5,8 +5,11 @@
     <title>Serum Bilirubin</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
     <link rel="stylesheet" href="../css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <script src="../jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="../bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="../node_modules/js-datepicker/dist/datepicker.min.css">
+<script>let $ = require('jquery');</script>
+<script>require('popper.js');</script>
+<script>require('bootstrap');</script>
+<script>const datepicker = require('js-datepicker')</script>
 </head>
 <style>
     body {
@@ -15,7 +18,9 @@
     background-color: #f2f2f2;
 }
 
-
+.qs-current{
+    background: #36cc36 !important;
+}
 
 *[role="form"] {
     padding: 15px;
@@ -39,6 +44,7 @@
 
 
 </style>
+
 <body>
 <center><div class="container">
             <form class="form-horizontal" role="form">
@@ -79,7 +85,7 @@
                 <div class="row">
                     <label for="reporting_date" class="col-sm-4 control-label">Date of Reporting: </label>
                     <div class="col-sm-8">
-                        <input type="date" id="reporting_date" tabindex="6" placeholder="YYYY-MM-DD" class="form-control" name= "reporting_date">
+                        <input type="text" id="reporting_date" tabindex="6" placeholder="YYYY-MM-DD" class="form-control" name= "reporting_date">
                     </div>
                 </div>
                 <div class="row">
@@ -111,5 +117,16 @@
             </form> <!-- /form -->
         </div>
 </body>
+<script type="text/javascript">
+    
+datepicker("#reporting_date",{
+    formatter: (input, date, instance) => {
+      input.value = date.getFullYear() + '-' + 
+                    ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1)))  + 
+                    '-' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate()));
+    }
+});
+  
+</script>
 </center>
 </html>
